@@ -1,0 +1,20 @@
+html{
+  font-size: 16px;
+}
+body{
+  background-image: linear-gradient(to right,#F1A10A,#342303)
+}
+
+article.row{
+  margin-bottom: 3rem;
+}
+article.row:first-of-type{
+  margin-top: 3rem;
+}
+article.row:last-of-type{
+  margin-bottom: 0;
+}
+
+h2{
+  color: #F1A10A;
+}
