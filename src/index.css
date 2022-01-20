@@ -18,3 +18,30 @@ article.row:last-of-type{
 h2{
   color: #F1A10A;
 }
+
+nav{
+  background: #2D2D2D;
+}
+.nav-link-header{
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+@media (max-width: 576px) {
+  img{
+    width: 300px;
+    max-height: 300px;
+  }
+}
+
+@media (min-width: 768px){
+  .img-peq{
+    width: 300px;
+    max-height: 300px;
+  }
+  .img-med{
+    width: 300px;
+    max-height: 300px;
+  }
+}
