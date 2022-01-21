@@ -1,8 +1,11 @@
 console.log(window.innerHeight);
+document.onreadystatechange = () => {
 
-const lista_posts = document.querySelector('main');
+  if (document.readyState === 'complete') {
 
-const posts = `
+    const lista_posts = document.querySelector('main');
+    let posts_data = [];
+    const posts = `
   <article class="row">
     <article class="d-flex pe-0 col-md-6 col-12">
       <img class="img-peq" src="./img/stage-wide-frontal.png" alt="">
@@ -33,24 +36,19 @@ const posts = `
   </article>
   `;
 
-  function makeRequest() {
-    httpRequest = new XMLHttpRequest();
+    console.log('main', lista_posts);
+    lista_posts.insertAdjacentHTML('beforeend', posts);
 
-    if (!httpRequest) {
-      alert('Giving up :( Cannot create an XMLHTTP instance');
-      return false;
-    }
-    httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('GET', 'https://stormy-shelf-93141.herokuapp.com/');
-    httpRequest.send();
-  }
+    fetch('https://stormy-shelf-93141.herokuapp.com/articles',
+      {
+        method: 'GET',
+        data: { _page: 1 }
+      })
+      .then((response) => JSON.stringify(response))
+      .then((responseJson) =>
+        posts_data = responseJson
+      );
+    console.log(56, posts_data);
 
-  function alertContents() {
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-      if (httpRequest.status === 200) {
-        alert(httpRequest.responseText);
-      } else {
-        alert('There was a problem with the request.');
-      }
-    }
   }
+}
