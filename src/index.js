@@ -1,12 +1,24 @@
 var posts_data = [];
 document.onreadystatechange = () => {
+  let page;
   
   if (document.readyState === 'complete') {
     window.addEventListener('scroll', function(event){
       let element = document.body;
       if(element.clientHeight - window.scrollY === document.documentElement.clientHeight){
         console.log('final');
-        // carregaProximo();
+        page = page+1;
+        queryPage = '&_page='+ page;
+        console.log(queryPage);
+        fetch('https://stormy-shelf-93141.herokuapp.com/articles' + '?_limit=3'+queryPage,
+          {
+            method: 'GET'
+          })
+          .then((response) => response.json())
+          .then((responseJson) =>{
+            posts_data.push(responseJson);
+        });
+        mountPost();
       }
     })
     const lista_posts = document.querySelector('main');
@@ -19,21 +31,22 @@ document.onreadystatechange = () => {
           posts = `
           <article class="row">
             <article class="d-flex pe-0 col-md-6 col-12">
-              <img class="img-peq" src="${element.imageUrl}" alt="">
+              <img class="img-peq" src="${posts_data[0][0].imageUrl}" alt="">
               <article class="text-center w-100 bg-white">
-                <h3>${element.author}</h3>
-                <h2>${element.title}</h2>
-                ${element.article}
+                <h3>${posts_data[0][0].author}</h3>
+                <h2>${posts_data[0][0].title}</h2>
+                ${posts_data[0][0].article}
               </article>
             </article>
           `;
-          posts += `
+        });
+        posts += `
             <article class="col-md-6 col-12 ps-0 d-flex">
-            <img class="img-peq" src="${element.imageUrl}" alt="">
+            <img class="img-peq" src="${posts_data[0][1].imageUrl}" alt="">
             <article class="text-center w-100 bg-white">
-              <h3>${element.author}</h3>
-              <h2>${element.title}</h2>
-              ${element.article}
+              <h3>${posts_data[0][1].author}</h3>
+              <h2>${posts_data[0][1].title}</h2>
+              ${posts_data[0][1].article}
             </article>      
             </article>
           </article>
@@ -41,33 +54,30 @@ document.onreadystatechange = () => {
         posts += `
         <article class="row">
           <article class="col-offset-4 col-8 d-flex">
-            <img class="img-med" src="${element.imageUrl}" alt="">
+            <img class="img-med" src="${posts_data[0][2].imageUrl}" alt="">
             <article class="text-center w-100 bg-white">
-              <h3>${element.author}</h3>
-              <h2>${element.title}</h2>
-              ${element.article}
+              <h3>${posts_data[0][2].author}</h3>
+              <h2>${posts_data[0][2].title}</h2>
+              ${posts_data[0][2].article}
             </article>
           </article>
         </article>
         `
-        });
+        lista_posts.insertAdjacentHTML('beforeend', posts);
 
         clearInterval(intevalo);
-        lista_posts.insertAdjacentHTML('beforeend', posts);
 
       }, 750);
       
     }
-    
-    
 
-    fetch('https://stormy-shelf-93141.herokuapp.com/articles',
+    fetch('https://stormy-shelf-93141.herokuapp.com/articles' + '?_limit=3',
       {
         method: 'GET',
-        data: { _page: 1, _limit:11 }
       })
       .then((response) => response.json())
       .then((responseJson) =>{
+        page = 1;
         posts_data.push(responseJson);
     });
     mountPost();
