@@ -21,46 +21,56 @@ document.onreadystatechange = () => {
       }
     })
     const lista_posts = document.querySelector('main');
-    let posts = ''; 
 
     function mountPost() {
       const intevalo = setInterval(() => {
 
         if (Object.values(posts_data).length != 0) {
+          let posts = ''; 
+
           posts_data[page-1].forEach((element, key) => {
             if(key==0)
             posts += `
           <article class="row">
-            <article class="d-flex pe-0 col-md-6 col-12">
+            <article class="d-flex pe-0 col-md-6 col-12 max-duplo">
               <img class="img-peq" src="${posts_data[0][key].imageUrl}" alt="">
-              <article class="text-center w-100 bg-white">
-                <h3>${posts_data[page-1][key].author}</h3>
-                <h2>${posts_data[page-1][key].title}</h2>
-                ${posts_data[page-1][key].article}
+              <article class="text-center w-100 bg-white text-post">
+                <div class='container'>
+                  <a href=''><img src="./img/Vector.png" class="vector"></a>
+                  <h3>${posts_data[page-1][key].author}</h3>
+                  <h2>${posts_data[page-1][key].title}</h2>
+                  ${posts_data[page-1][key].article}
+                </div>
               </article>
             </article>
           `;
           if(key==1)
             posts += `
-              <article class="col-md-6 col-12 ps-0 d-flex">
-              <img class="img-peq" src="${posts_data[page-1][key].imageUrl}" alt="">
-              <article class="text-center w-100 bg-white">
-                <h3>${posts_data[page-1][key].author}</h3>
-                <h2>${posts_data[page-1][key].title}</h2>
-                ${posts_data[page-1][key].article}
-              </article>      
+              <article class="col-md-6 col-12 ps-0 d-flex max-duplo">
+                <img class="img-peq" src="${posts_data[page-1][key].imageUrl}" alt="">
+                <article class="text-center w-100 bg-white text-post">
+                  <div class='container'>
+                    <a href=''><img src="./img/Vector.png" class="vector"></a>
+                    <h3>${posts_data[page-1][key].author}</h3>
+                    <h2>${posts_data[page-1][key].title}</h2>
+                    ${posts_data[page-1][key].article}
+                  </div>      
+                </article>
               </article>
             </article>
           `;
           if(key==2)
             posts += `
           <article class="row">
-            <article class="col-offset-4 col-8 d-flex">
+            <article class="col-offset-4 col-8 d-flex max-solo">
               <img class="img-med" src="${posts_data[page-1][key].imageUrl}" alt="">
-              <article class="text-center w-100 bg-white">
-                <h3>${posts_data[page-1][key].author}</h3>
-                <h2>${posts_data[page-1][key].title}</h2>
-                ${posts_data[page-1][key].article}
+              <article class="text-center w-100 bg-white text-post">
+                <div class='container'>
+                  <a href=''><img src="./img/Vector.png" class="vector"></a>
+                  <h3>${posts_data[page-1][key].author}</h3>
+                  <h2>${posts_data[page-1][key].title}</h2>
+                  ${posts_data[page-1][key].article}
+                </div>
               </article>
             </article>
           </article>
