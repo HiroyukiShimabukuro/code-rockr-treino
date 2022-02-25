@@ -44,6 +44,7 @@ nav{
 .max-solo{
   max-height: 640px;
   position: relative;
+  overflow: hidden;
 }
 .text-post{
   display: flex;
@@ -58,25 +59,44 @@ nav{
   width: 24px;
   height: 16px;
 }
+.container{
+  max-width: 70% !important;
+}
 
 @media (max-width: 576px) {
   .img-peq{
-    width: 300px;
-    max-height: 300px;
+    width: 80px;
+    max-height: 80px;
   }
   .img-med{
-    width: 300px;
-    max-height: 300px;
+    width: 160px;
+    max-height: 160px;
+  }
+  
+  .max-duplo{
+    max-height: 80px;
+    max-width: 100%;
+    padding-left: 0;
+  }
+  .max-solo{
+    max-height: 160px;
   }
 }
 
-@media (min-width: 768px and max-width: 1024px) {
+@media (min-width: 576px) and (max-width: 1024px){
   .img-peq{
-    width: 300px;
-    max-height: 300px;
+    width: 120px;
+    max-height: 120px;
   }
   .img-med{
-    width: 300px;
-    max-height: 300px;
+    width: 240px;
+    max-height: 240px;
+  }
+  
+  .max-duplo{
+    max-height: 120px;
+  }
+  .max-solo{
+    max-height: 240px;
   }
 }

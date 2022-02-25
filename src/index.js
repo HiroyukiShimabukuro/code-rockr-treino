@@ -31,8 +31,8 @@ document.onreadystatechange = () => {
           posts_data[page-1].forEach((element, key) => {
             if(key==0)
             posts += `
-          <article class="row">
-            <article class="d-flex pe-0 col-md-6 col-12 max-duplo">
+          <article class="row mx-0">
+            <article data-duplo="${page}" class="d-flex px-0 col-md-6 col-12 max-duplo">
               <img class="img-peq" src="${posts_data[0][key].imageUrl}" alt="">
               <article class="text-center w-100 bg-white text-post">
                 <div class='container'>
@@ -46,7 +46,7 @@ document.onreadystatechange = () => {
           `;
           if(key==1)
             posts += `
-              <article class="col-md-6 col-12 ps-0 d-flex max-duplo">
+              <article data-duplo="${page}" class="col-md-6 col-12 px-0 d-flex ps-0 max-duplo">
                 <img class="img-peq" src="${posts_data[page-1][key].imageUrl}" alt="">
                 <article class="text-center w-100 bg-white text-post">
                   <div class='container'>
@@ -61,8 +61,8 @@ document.onreadystatechange = () => {
           `;
           if(key==2)
             posts += `
-          <article class="row">
-            <article class="col-offset-4 col-8 d-flex max-solo">
+          <article data-solo="${page}" class="row mx-0 flex-row-reverse">
+            <article class="col-offset-4 col-8 d-flex px-0 max-solo">
               <img class="img-med" src="${posts_data[page-1][key].imageUrl}" alt="">
               <article class="text-center w-100 bg-white text-post">
                 <div class='container'>
@@ -78,6 +78,10 @@ document.onreadystatechange = () => {
           });
           lista_posts.insertAdjacentHTML('beforeend', posts);
         }
+        // document.querySelector('article[data-solo='+page+']');
+        // let rato = document.querySelector('article[data-solo='+page+']');
+        // let rato2 = document.querySelector('article[data-duplo='+page+']');
+        // console.log(rato);
         clearInterval(intevalo);
 
       }, 750);
