@@ -1,8 +1,7 @@
 var posts_data = [];
 document.onreadystatechange = () => {
+  console.log(window.location.href)
   var page;
-  let multiplePage;
-
   if (document.readyState === 'complete') {
     window.addEventListener('scroll', function (event) {
       let element = document.body;
@@ -20,23 +19,26 @@ document.onreadystatechange = () => {
         mountPost();
       }
     })
-    const lista_posts = document.querySelector('main');
+    const lista_posts = document.querySelector('#index');
 
     function mountPost() {
       const intevalo = setInterval(() => {
 
         if (Object.values(posts_data).length != 0) {
           let posts = ''; 
-
+          let inverterPostSimples = '';
+          let inverterPostDuplo = '';
           posts_data[page-1].forEach((element, key) => {
+            inverterPostSimples = page % 2 == 1? 'flex-row-reverse': '';
+            inverterPostDuplo = page % 2 == 1? '': 'flex-row-reverse';
             if(key==0)
             posts += `
           <article class="row mx-0">
-            <article data-duplo="${page}" class="d-flex px-0 col-md-6 col-12 max-duplo">
+            <article class="d-flex px-0 col-md-6 col-12 max-duplo ${inverterPostDuplo}">
               <img class="img-peq" src="${posts_data[0][key].imageUrl}" alt="">
               <article class="text-center w-100 bg-white text-post">
                 <div class='container'>
-                  <a href=''><img src="./img/Vector.png" class="vector"></a>
+                  <a href='/post.html'><img src="./img/Vector.png" class="vector"></a>
                   <h3>${posts_data[page-1][key].author}</h3>
                   <h2>${posts_data[page-1][key].title}</h2>
                   ${posts_data[page-1][key].article}
@@ -46,7 +48,7 @@ document.onreadystatechange = () => {
           `;
           if(key==1)
             posts += `
-              <article data-duplo="${page}" class="col-md-6 col-12 px-0 d-flex ps-0 max-duplo">
+              <article class="col-md-6 col-12 px-0 d-flex ps-0 max-duplo ${inverterPostDuplo}">
                 <img class="img-peq" src="${posts_data[page-1][key].imageUrl}" alt="">
                 <article class="text-center w-100 bg-white text-post">
                   <div class='container'>
@@ -61,7 +63,7 @@ document.onreadystatechange = () => {
           `;
           if(key==2)
             posts += `
-          <article data-solo="${page}" class="row mx-0 flex-row-reverse">
+          <article class="row mx-0 ${inverterPostSimples}">
             <article class="col-offset-4 col-8 d-flex px-0 max-solo">
               <img class="img-med" src="${posts_data[page-1][key].imageUrl}" alt="">
               <article class="text-center w-100 bg-white text-post">
@@ -78,10 +80,6 @@ document.onreadystatechange = () => {
           });
           lista_posts.insertAdjacentHTML('beforeend', posts);
         }
-        // document.querySelector('article[data-solo='+page+']');
-        // let rato = document.querySelector('article[data-solo='+page+']');
-        // let rato2 = document.querySelector('article[data-duplo='+page+']');
-        // console.log(rato);
         clearInterval(intevalo);
 
       }, 750);
@@ -99,4 +97,9 @@ document.onreadystatechange = () => {
       });
     mountPost();
   }
+
+  let singlePost = '';
+  singlepost = document.querySelector('#post');
+
+
 }
