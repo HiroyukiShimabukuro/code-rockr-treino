@@ -7,25 +7,28 @@
   <title>CodeRockr</title>
   <link rel="stylesheet" type="text/css" href="./index.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  
+  <script src="./home.js"></script>
+  <script src="./contact.js"></script>
+  <script src="./post.js"></script>
 </head>
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
       <article class="row m-0 d-flex w-100">
         <div class="container d-flex">
-          <a href="#home" class="col-8 nav-link-header">Rockr Blog</a>  
-          <a href="#home" class="col-2 nav-link-header">Posts</a>  
-          <a href="#Contact" class="col-2 nav-link-header">Contact</a>  
+          <a href="#" onclick="onNavigate('/'); return false;" class="col-8 nav-link-header">Rockr Blog</a>  
+          <a href="#" onclick="onNavigate('/post/'); return false;" class="col-2 nav-link-header">Posts</a>  
+          <a href="#" onclick="onNavigate('/contact/'); return false;" class="col-2 nav-link-header">Contact</a>  
         </div>
       </article>
     </nav>
+    
   </header>
-  <script src="./index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-
-  <main id='index'>
+  
+  <main id='content'>
   </main>
+  <script src="./app.js"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 var posts_data = [];
 document.onreadystatechange = () => {
-  console.log(window.location.href)
   var page;
   if (document.readyState === 'complete') {
     window.addEventListener('scroll', function (event) {
@@ -19,7 +18,7 @@ document.onreadystatechange = () => {
         mountPost();
       }
     })
-    const lista_posts = document.querySelector('#index');
+    const lista_posts = document.querySelector('#content');
 
     function mountPost() {
       const intevalo = setInterval(() => {
