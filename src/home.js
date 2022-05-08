@@ -1,3 +1,4 @@
+var home = [];
 var posts_data = [];
 document.onreadystatechange = () => {
   var page;
@@ -22,7 +23,6 @@ document.onreadystatechange = () => {
 
     function mountPost() {
       const intevalo = setInterval(() => {
-
         if (Object.values(posts_data).length != 0) {
           let posts = ''; 
           let inverterPostSimples = '';
@@ -33,51 +33,52 @@ document.onreadystatechange = () => {
             if(key==0)
             posts += `
           <article class="row mx-0">
-            <article class="d-flex px-0 col-md-6 col-12 max-duplo ${inverterPostDuplo}">
+            <a onclick="onNavigate('/post/${(page -1) * 3 + key}')" class="d-flex px-0 col-md-6 col-12 max-duplo post-link ${inverterPostDuplo}">
               <img class="img-peq" src="${posts_data[0][key].imageUrl}" alt="">
-              <article class="text-center w-100 bg-white text-post">
-                <div class='container'>
-                  <a href='/post.html'><img src="./img/Vector.png" class="vector"></a>
-                  <h3>${posts_data[page-1][key].author}</h3>
-                  <h2>${posts_data[page-1][key].title}</h2>
-                  ${posts_data[page-1][key].article}
+              <article class="w-100 bg-white h-100">
+                <div class='container p-0 text-post h-100'>
+                  <img src="./img/Vector.png" class="vector"> 
+                  <h4 class="text-start w-100">${posts_data[page-1][key].author}</h4>
+                  <h3 class="post-title texto">${posts_data[page-1][key].title}</h3>
+                  <article class="texto"> ${posts_data[page-1][key].article} </article>
                 </div>
               </article>
-            </article>
+            </a>
           `;
           if(key==1)
             posts += `
-              <article class="col-md-6 col-12 px-0 d-flex ps-0 max-duplo ${inverterPostDuplo}">
+              <a onclick="onNavigate('/post/${(page -1) * 3 + key}')" class="col-md-6 col-12 px-0 d-flex ps-0 max-duplo post-link ${inverterPostDuplo}">
                 <img class="img-peq" src="${posts_data[page-1][key].imageUrl}" alt="">
-                <article class="text-center w-100 bg-white text-post">
-                  <div class='container'>
-                    <a href=''><img src="./img/Vector.png" class="vector"></a>
-                    <h3>${posts_data[page-1][key].author}</h3>
-                    <h2>${posts_data[page-1][key].title}</h2>
-                    ${posts_data[page-1][key].article}
+                <article class="w-100 bg-white h-100">
+                  <div class='container p-0 text-post h-100'>
+                    <img src="./img/Vector.png" class="vector">
+                    <h4 class="text-start w-100">${posts_data[page-1][key].author}</h4>
+                    <h3 class="post-title texto">${posts_data[page-1][key].title}</h3>
+                    <article class="texto"> ${posts_data[page-1][key].article} </article>
                   </div>      
                 </article>
-              </article>
+              </a>
             </article>
           `;
           if(key==2)
             posts += `
           <article class="row mx-0 ${inverterPostSimples}">
-            <article class="col-offset-4 col-8 d-flex px-0 max-solo">
+            <a onclick="onNavigate('/post/${(page -1) * 3 + key}')" class="col-offset-4 col-8 d-flex px-0 max-solo post-link">
               <img class="img-med" src="${posts_data[page-1][key].imageUrl}" alt="">
-              <article class="text-center w-100 bg-white text-post">
-                <div class='container'>
-                  <a href=''><img src="./img/Vector.png" class="vector"></a>
-                  <h3>${posts_data[page-1][key].author}</h3>
-                  <h2>${posts_data[page-1][key].title}</h2>
-                  ${posts_data[page-1][key].article}
+              <article class="w-100 bg-white h-100">
+                <div class='container p-0 text-post h-100'>
+                  <img src="./img/Vector.png" class="vector">
+                  <h4 class="text-start w-100">${posts_data[page-1][key].author}</h4>
+                  <h3 class="post-title texto">${posts_data[page-1][key].title}</h3>
+                  <article class="texto"> ${posts_data[page-1][key].article} </article>
                 </div>
               </article>
-            </article>
+            </a>
           </article>
           `
           });
           lista_posts.insertAdjacentHTML('beforeend', posts);
+          home = posts;
         }
         clearInterval(intevalo);
 
