@@ -6,8 +6,7 @@
   const contentMain = document.querySelector('#content');
   contentMain.innerHTML = routes[window.location.pathname];
   
-  function onNavigate(pathname) {
-    console.log(10,pathname);
+  function onNavigate(pathname, params) {
     window.history.pushState(
       {},
       pathname,

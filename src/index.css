@@ -21,16 +21,21 @@ article.row:last-of-type{
   max-height: 3.2rem !important;
   margin: 1rem 0;
   width: 100%;
+  font-weight: 700 !important;
+  font-size: 1.5rem !important;
 }
 
 .texto{
   word-wrap: break-word;
   display: block;
   line-height: 1.6rem;
+  font-size: 1rem;
+  font-weight:400;
   max-height: 4.8rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 nav{
   background: #2D2D2D;
 }
