@@ -7,7 +7,7 @@ const contentMain = document.querySelector("#content");
 
 function onNavigate(pathname, params) {
   window.history.pushState({}, pathname, window.location.origin + pathname);
-  contentMain.innerHTML = routes[pathname]();
+  contentMain.innerHTML = params ? routes[pathname](params) : routes[pathname]();
 }
 
 window.onpopstate = () => {

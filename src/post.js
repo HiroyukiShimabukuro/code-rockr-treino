@@ -1,22 +1,18 @@
-let post = (document.onreadystatechange = () => {
-  let posts = "";
-  let id = 0;
-  console.log("posts");
+let post = (document.onreadystatechange = (params) => {
+  var page;
+  var posts_data = [];
   if (document.readyState === "complete") {
-    const lista_posts = document.querySelector("#content");
-    function mountPost() {
-      posts += `
-          <article class="container bg-white">
-          </article>
-          `;
-    }
-    fetch("https://stormy-shelf-93141.herokuapp.com/articles?" + id, {
+    let post = document.querySelector("#content");
+    
+    fetch("https://stormy-shelf-93141.herokuapp.com/articles?" +params, {
       method: "GET",
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        post = responseJson;
+        page = 1;
+        posts_data.push(responseJson);
+        post = posts_data;
       });
-    mountPost();
+
   }
 });

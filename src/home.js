@@ -125,6 +125,4 @@ let home = (document.onreadystatechange = () => {
       });
     mountPost();
   }
-  let singlePost = "";
-  singlepost = document.querySelector("#post");
 });
