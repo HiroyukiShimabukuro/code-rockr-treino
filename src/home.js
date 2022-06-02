@@ -1,6 +1,9 @@
 let home = (document.onreadystatechange = () => {
+  console.log("home");
+
   var page;
   var posts_data = [];
+  const lista_posts = document.querySelector("#content");
   if (document.readyState === "complete") {
     window.addEventListener("scroll", function (event) {
       let element = document.body;
@@ -25,7 +28,6 @@ let home = (document.onreadystatechange = () => {
         mountPost();
       }
     });
-    const lista_posts = document.querySelector("#content");
     function mountPost() {
       const intevalo = setInterval(() => {
         if (Object.values(posts_data).length != 0) {

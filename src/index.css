@@ -53,6 +53,10 @@ nav{
   width: 480px;
   max-height: 640px;
 }
+.img-full{
+  width: 640px;
+  max-height: 640px;
+}
 .max-duplo{
   max-height: 320px;
   overflow: hidden;
