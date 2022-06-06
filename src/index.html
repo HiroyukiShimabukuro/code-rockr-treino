@@ -24,10 +24,9 @@
         <div class="container d-flex">
           <a href="/src/index.html" onclick="onNavigate('/home/'); return false;"
             class="col-8 nav-link-header bold">Rockr Blog</a>
-          <a href="/src/index.html" onclick="onNavigate('/post/'); return false;"
+          <a onclick="onNavigate('/post/'); return false;"
             class="col-2 nav-link-header normal">Posts</a>
-          <a href="/src/index.html" onclick="onNavigate('/contact/'); return false;"
-            class="col-2 nav-link-header normal">Contact</a>
+          <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="col-2 nav-link-header normal">Contact</a>
         </div>
       </article>
     </nav>
@@ -40,8 +39,41 @@
     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
     crossorigin="anonymous"></script>
 
-  <section class="modal">
-  </section>
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-header border-bottom-0">
+          <h5 class="text-center modal-title" id="staticBackdropLabel">Modal title</h5>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Fill your full name">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">E-mail</label>
+              <input type="email" class="form-control" name="email" placeholder="Fill a valid e-mail">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Phone</label>
+              <input type="tel" class="form-control" name="phone" placeholder="Fill your phone">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Post</label>
+              <textarea placeholder="Hello..." class="form-control">
+              </textarea>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <main id='content'>
   </main>
 

@@ -1,6 +1,5 @@
 const routes = {
   "/post/": post,
-  "/contact/": contact,
   "/home/": home,
 };
 let contentMain = document.querySelector("#content");

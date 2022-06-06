@@ -15,8 +15,8 @@ let post = (document.onreadystatechange = (params) => {
      function montarPost(postData) {
        console.log(postData);
       html = `
-      <article class="container w-100">
-        <article class="d-flex px-0 col-md-6 col-12 post-link">
+      <article class="d-flex container w-100">
+        <article class="d-flex px-0 col-12 post-link">
           <img class="img-full" src="${postData.imageUrl}" alt="">
           <article class="w-100 bg-white h-100 position-relative">
             <div class='container p-0 text-post h-100'>

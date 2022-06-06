@@ -1,23 +1,23 @@
-html{
+html {
   font-size: 16px;
   font-family: "Rubik";
 }
-body{
-  background-image: linear-gradient(to right,#F1A10A,#342303)
+body {
+  background-image: linear-gradient(to right, #f1a10a, #342303);
 }
 
-article.row{
+article.row {
   margin-bottom: 3rem;
 }
-article.row:first-of-type{
+article.row:first-of-type {
   margin-top: 3rem;
 }
-article.row:last-of-type{
+article.row:last-of-type {
   margin-bottom: 0;
 }
 
-.post-title{
-  color: #F1A10A;
+.post-title {
+  color: #f1a10a;
   max-height: 3.2rem !important;
   margin: 1rem 0;
   width: 100%;
@@ -25,114 +25,126 @@ article.row:last-of-type{
   font-size: 1.5rem !important;
 }
 
-.texto{
+.texto {
   word-wrap: break-word;
   display: block;
   line-height: 1.6rem;
   font-size: 1rem;
-  font-weight:400;
+  font-weight: 400;
   max-height: 4.8rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-nav{
-  background: #2D2D2D;
+nav {
+  background: #2d2d2d;
 }
-.nav-link-header{
+.nav-link-header {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.5rem;
+  cursor: pointer;
 }
-.img-peq{
+.img-peq {
   width: 320px;
   max-height: 320px;
 }
-.img-med{
+.img-med {
   width: 480px;
   max-height: 640px;
 }
-.img-full{
+.img-full {
   width: 640px;
   max-height: 640px;
 }
-.max-duplo{
+.max-duplo {
   max-height: 320px;
   overflow: hidden;
   position: relative;
 }
-.max-solo{
+.max-solo {
   max-height: 640px;
   position: relative;
   overflow: hidden;
 }
-.text-post{
+.text-post {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.vector{
+.vector {
   position: absolute;
   bottom: 10px;
   right: 14px;
   width: 24px;
   height: 16px;
 }
-.container{
+.container {
   max-width: 70% !important;
 }
-.bold{
+.bold {
   font-weight: 700;
 }
-.normal{
+.normal {
   font-weight: 500;
 }
 
-.post-link{
-  color: #2D2D2D;
+.post-link {
+  color: #2d2d2d;
   text-decoration: none;
 }
-.post-link:hover{
-  color: #2D2D2D;
+.post-link:hover {
+  color: #2d2d2d;
   filter: contrast(150%);
   cursor: pointer;
 }
+
+.btn-close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.modal-title {
+  width: 100%;
+  text-align: center;
+}
 @media (max-width: 576px) {
-  .img-peq{
+  .img-peq {
     width: 80px;
     max-height: 80px;
   }
-  .img-med{
+  .img-med {
     width: 160px;
     max-height: 160px;
   }
-  
-  .max-duplo{
+
+  .max-duplo {
     max-height: 80px;
     max-width: 100%;
     padding-left: 0;
   }
-  .max-solo{
+  .max-solo {
     max-height: 160px;
   }
 }
 
-@media (min-width: 576px) and (max-width: 1024px){
-  .img-peq{
+@media (min-width: 576px) and (max-width: 1024px) {
+  .img-peq {
     width: 120px;
     max-height: 120px;
   }
-  .img-med{
+  .img-med {
     width: 240px;
     max-height: 240px;
   }
-  
-  .max-duplo{
+
+  .max-duplo {
     max-height: 120px;
   }
-  .max-solo{
+  .max-solo {
     max-height: 240px;
   }
 }
