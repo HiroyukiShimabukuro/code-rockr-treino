@@ -111,6 +111,11 @@ nav {
   width: 100%;
   text-align: center;
 }
+
+.contact-submit {
+  background-color: #2d2d2d;
+  color: #fff;
+}
 @media (max-width: 576px) {
   .img-peq {
     width: 80px;

@@ -1,10 +1,9 @@
 let home = (document.onreadystatechange = () => {
-  console.log("home");
-
   var page;
   var posts_data = [];
+  let url = window.location.pathname;
   const lista_posts = document.querySelector("#content");
-  if (document.readyState === "complete") {
+  if (document.readyState === "complete" && url == '/home/') {
     window.addEventListener("scroll", function (event) {
       let element = document.body;
       if (

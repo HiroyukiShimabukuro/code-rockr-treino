@@ -1,8 +1,7 @@
 let post = (document.onreadystatechange = (params) => {
-  console.log("post");
   var page;
   var posts_data = [];
-  if (document.readyState === "complete") {
+  if (document.readyState === "complete" && window.location.pathname == '/post/') {
     let post = document.querySelector("#content");
     
     fetch("https://stormy-shelf-93141.herokuapp.com/articles?" +params, {
@@ -13,7 +12,6 @@ let post = (document.onreadystatechange = (params) => {
         montarPost(responseJson[0]);
       });
      function montarPost(postData) {
-       console.log(postData);
       html = `
       <article class="d-flex container w-100">
         <article class="d-flex px-0 col-12 post-link">
@@ -39,5 +37,8 @@ let post = (document.onreadystatechange = (params) => {
       `;
       post.innerHTML = html;
      } 
+  }
+  else{
+    return false;
   }
 });

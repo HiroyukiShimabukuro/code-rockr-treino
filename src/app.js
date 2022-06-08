@@ -11,7 +11,6 @@ if(window.location.pathname == '/src/'){
   }, 500);
 } 
 function onNavigate(pathname, params) {
-  console.log(10, window.location.pathname);
   window.history.pushState({}, pathname, window.location.origin + pathname);
   contentMain.innerHTML = params ? routes[pathname](params) : routes[pathname]();
 }
